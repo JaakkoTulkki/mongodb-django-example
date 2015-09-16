@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authentication',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,15 +83,13 @@ DATABASES = {
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-SESSION_ENGINE = 'mongoengine.django.sessions'
+# SESSION_ENGINE = 'mongoengine.django.sessions'
 
 _MONGODB_USER = 'jaakko'
 _MONGODB_PASSWD = 'jaakko'
-_MONGODB_HOST = 'localhost'
 _MONGODB_NAME = 'hollylocal' 
-_MONGODB_DATABASE_HOST = 'mongodb://%s:%s@%s/%s' % (_MONGODB_USER, _MONGODB_PASSWD, _MONGODB_HOST, _MONGODB_NAME)
 
-mongoengine.connect(_MONGODB_NAME, host=_MONGODB_DATABASE_HOST)
+mongoengine.connect('hollylocal', username='jaakko', password='jaakko')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
