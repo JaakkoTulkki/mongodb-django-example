@@ -23,3 +23,8 @@ class User(mongoengine.Document):
              write_concern=None, cascade=None, cascade_kwargs=None,
              _refs=None, save_condition=None, **kwargs)
 
+    def create(self, **kwargs):
+        super(User).create(**kwargs)
+        return self
+
+
