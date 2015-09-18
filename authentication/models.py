@@ -27,4 +27,10 @@ class User(mongoengine.Document):
         super(User).create(**kwargs)
         return self
 
+    def update(self, instance, validated_data):
+        instance.username = validated_data.get("username", instance.username)
+        if validated_data.get("password"):
+            instance.password = validated_data.get('password')
+        instance.save()
+        return instance
 
