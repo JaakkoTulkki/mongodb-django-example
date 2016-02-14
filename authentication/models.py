@@ -34,3 +34,6 @@ class User(mongoengine.Document):
         instance.save()
         return instance
 
+
+class Comment(mongoengine.Document):
+    pass
